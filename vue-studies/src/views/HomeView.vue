@@ -1,11 +1,17 @@
 <template>
   <div class="p-12">
     <h2 class="my-4 text-2xl font-bold">Produtos</h2>
+    <div>
+      <button class="btn btn-success font-bold rounded mb-4" @click="irParaFormulario">
+        Ir para o formulário
+      </button>
+    </div>
     <div class="flex items-center gap-4 flex-wrap">
       <div
         v-for="(produto, index) in arrProdutos"
         :key="index"
         class="card bg-base-300 w-96 shadow-sm rounded-md"
+        @click="mostrarAlert"
       >
         <figure>
           <img
@@ -23,7 +29,7 @@
           <p class="text-amber-400">
             {{ `Quantidade: ${produto.qtd}` }}
           </p>
-          <div>
+          <div class="flex gap-2">
             <div
               v-for="(cor, indexColor) in produto.cores"
               :key="indexColor"
@@ -42,6 +48,16 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
+const navigator = useRouter()
+function mostrarAlert() {
+  alert('Promoção imperdível!')
+}
+
+function irParaFormulario() {
+  navigator.push('/form')
+}
+
 const arrProdutos = [
   {
     nome: 'Tenis Nike',

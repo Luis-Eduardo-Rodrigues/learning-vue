@@ -51,13 +51,7 @@
     <div>
       <fieldset class="fieldset w-72 bg-base-100 border-base-300 rounded-box border p-4">
         <label class="label">
-          <input
-            v-model="form.isDev"
-            type="checkbox"
-            checked="checked"
-            value="true"
-            class="checkbox"
-          />
+          <input v-model="form.isDev" type="checkbox" value="true" class="checkbox" />
           Programador?
         </label>
       </fieldset>
